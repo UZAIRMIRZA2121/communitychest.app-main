@@ -99,7 +99,7 @@ class PromotionalPdfController extends Controller
             $uploadedFiles,
             ['user_id' => auth()->id()]
         ));
-
+       
         // Redirect with success message
         return redirect()->route('promotional-pdfs.index')
                          ->with('success', 'Promotional PDF created successfully.');
@@ -167,8 +167,11 @@ class PromotionalPdfController extends Controller
             }
         }
 
-        $promotionalPdf->update(array_merge($validatedData, $uploadedFiles));
-
+        $promotionalPdf->update(array_merge(
+            $validatedData,
+            $uploadedFiles,
+            ['user_id' => auth()->id()]
+        ));
         return redirect()->route('promotional-pdfs.index')
                          ->with('success', 'Promotional PDF updated successfully.');
     }
