@@ -2,6 +2,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/msonsmed/public_html/
+    - export DEPLOYPATH=/home2/msonsmed/public_html/
     - /bin/cp * $DEPLOYPATH
     
